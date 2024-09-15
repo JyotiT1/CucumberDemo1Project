@@ -22,7 +22,11 @@ public class DriverFactory {
 	public WebDriver init_driver(String browser) {
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			tlDriver.set(new ChromeDriver());
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");  // Run Chrome in headless mode
+	        	options.addArguments("--start-maximized");  // Start maximized (optional in headless mode)
+	       		options.addArguments("--disable-extensions");  // Disable extensions
+			tlDriver.set(new ChromeDriver(options));
 		}
 		else if (browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
