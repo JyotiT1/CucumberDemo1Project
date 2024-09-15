@@ -36,7 +36,8 @@ jobs:
       # Step 2: Setup Chrome
       - name: Install ChromeDriver
         run: |
-          wget https://chromedriver.storage.googleapis.com/4.22.0/chromedriver_linux64.zip
+          LATEST_VERSION=$(wget -q -O - https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget https://chromedriver.storage.googleapis.com/$LATEST_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
