@@ -39,7 +39,7 @@ jobs:
 
        # List files to verify if the report is generated
       - name: List files in SparkReport
-        run: ls -la ./SparkReport
+        run: ls -la ./test-output/SparkReport/Index.html
 
       # Step 5: Publish test results (if any reports exist)
       - name: Archive test reports
@@ -47,4 +47,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: ./SparkReport/Index.html
+          path: ../SparkReport/Index.html
