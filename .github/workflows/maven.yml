@@ -35,7 +35,7 @@ jobs:
 
     # Step 4: Run Maven build and tests
     - name: Build and run tests
-      run: mvn clean install
+      run: mvn verify
 
     # Step 5: Publish test results (if any reports exist)
     - name: Archive test reports
